@@ -1,3 +1,39 @@
+async function convertfromid() {
+  const levelId = prompt("Please enter the level ID:");
+
+  if (!levelId) {
+    alert("Error: Level ID cannot be empty!");
+    return;
+  }
+
+  try {
+    const response = await fetch(`https://clarityworkshop.n3rdl0rd.repl.co/levelById/${levelId}`);
+    const compressed = await response.text();
+    const decompressed = LZString.decompressFromBase64(compressed);
+    const newmap = convertp2(JSON.parse(decompressed));
+
+    if (newmap != null) {
+      navigator.clipboard.writeText(newmap)
+        .then(() => {
+          console.log('New map copied to clipboard!');
+          document.getElementById("output").textContent = newmap;
+          alert('Success: New map copied to clipboard!');
+        })
+        .catch(err => {
+          console.error('Failed to copy new map to clipboard: ', err);
+          alert('Error: Failed to copy new map to clipboard (Error Code: Ligma)');
+        });
+    } else {
+      console.error("Failed to convert map!");
+      alert("Error: Failed to convert map (Error Code: Trollface)");
+    }
+  } catch (err) {
+    console.error('Failed to retrieve level data: ', err);
+    alert('Error: Failed to retrieve level data (Error Code: Amogus)');
+  }
+}
+
+
 function convert() {
     // get clipboard contents
     const permission = navigator.permissions.query({
