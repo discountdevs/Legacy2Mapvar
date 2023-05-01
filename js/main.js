@@ -402,7 +402,7 @@ function convertp2(map) {
 }
 
 function download() {
-    // downloads the contents of the textarea as a file
+    // downloads the contents of the textarea as a .clarity file
     var text = document.getElementById("output").textContent;
     var filename = "ConvertedMap.clarity";
     var blob = new Blob([text], {type: "text/plain;charset=utf-8"});
