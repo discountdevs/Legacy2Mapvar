@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/discountdevs/discount.css@master/out/dark.min.css">
+    <title>Legacy2Mapvar</title>
+</head>
+<body>
+    <h1>Legacy2Mapvar</h1>
+    <p>Convert your v1 maps into v2 mapvars easily!</p>
+
+    <button onclick="convert()">Load v1 level from clipboard</button>
+
+    <p>Output:</p>
+    <textarea id="output" cols="30" rows="10" style="border-color: white;"></textarea>
+    <button onclick="download()">Download <code>.clarity</code> file</button>
+
+    <script src="https://cdn.jsdelivr.net/gh/pieroxy/lz-string@master/libs/lz-string.min.js"></script>
+    <script src="./js/main.js"></script>
+</body>
+</html>
